@@ -42,3 +42,4 @@ THIS FIRMWARE AND ALL OTHER FILES IN THE DOWNLOAD ARE PROVIDED FREE OF CHARGE WI
 
 ## LICENSE
 For the license, check the header of each file, if the license is not specified there, the project license will be used. Marlin is licensed under the GPL.
+"# SKR-E3" 
