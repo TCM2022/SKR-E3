@@ -1421,7 +1421,11 @@ void MarlinUI::init() {
     else if (!no_welcome)
       msg = GET_TEXT_F(WELCOME_MSG);
     else
+<<<<<<< HEAD
       return;
+=======
+      msg = F("");
+>>>>>>> upstream
 
     set_status(msg, -1);
   }

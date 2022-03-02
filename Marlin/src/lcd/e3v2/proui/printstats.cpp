@@ -1,8 +1,13 @@
 /**
  * DWIN Print Stats page
  * Author: Miguel A. Risco-Castillo
+<<<<<<< HEAD
  * Version: 1.2.0
  * Date: 2022/01/27
+=======
+ * Version: 1.3.0
+ * Date: 2022/02/24
+>>>>>>> upstream
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -26,6 +31,10 @@
 #include "printstats.h"
 
 #include "../../../core/types.h"
+<<<<<<< HEAD
+=======
+#include "../../../MarlinCore.h"
+>>>>>>> upstream
 #include "../../marlinui.h"
 #include "../../../module/printcounter.h"
 #include "dwin_lcd.h"
@@ -43,7 +52,11 @@ void PrintStatsClass::Draw() {
   Title.ShowCaption(GET_TEXT_F(MSG_INFO_STATS_MENU));
   DWINUI::ClearMenuArea();
   Draw_Popup_Bkgd();
+<<<<<<< HEAD
   DWINUI::Draw_IconWB(ICON_Continue_E, 86, 250);
+=======
+  DWINUI::Draw_Button(BTN_Continue, 86, 250);
+>>>>>>> upstream
   printStatistics ps = print_job_timer.getStats();
 
   sprintf_P(buf, PSTR(S_FMT ": %i"), GET_TEXT(MSG_INFO_PRINT_COUNT), ps.totalPrints);
@@ -65,4 +78,12 @@ void PrintStatsClass::Reset() {
   HMI_AudioFeedback();
 }
 
+<<<<<<< HEAD
+=======
+void Goto_PrintStats() {
+  PrintStats.Draw();
+  HMI_SaveProcessID(WaitResponse);
+}
+
+>>>>>>> upstream
 #endif // DWIN_LCD_PROUI && PRINTCOUNTER

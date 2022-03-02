@@ -1,8 +1,13 @@
 /**
  * Menu functions for ProUI
  * Author: Miguel A. Risco-Castillo
+<<<<<<< HEAD
  * Version: 1.1.1
  * Date: 2022/02/12
+=======
+ * Version: 1.2.1
+ * Date: 2022/02/25
+>>>>>>> upstream
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as 

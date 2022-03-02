@@ -1,8 +1,13 @@
 /**
  * DWIN Mesh Viewer
  * Author: Miguel A. Risco-Castillo
+<<<<<<< HEAD
  * version: 3.11.1
  * Date: 2022/02/17
+=======
+ * version: 3.12.1
+ * Date: 2022/02/24
+>>>>>>> upstream
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -30,6 +35,10 @@
 #include "dwin_lcd.h"
 #include "dwinui.h"
 #include "dwin.h"
+<<<<<<< HEAD
+=======
+#include "dwin_popup.h"
+>>>>>>> upstream
 #include "../../../feature/bedlevel/bedlevel.h"
 
 MeshViewerClass MeshViewer;
@@ -97,10 +106,21 @@ void MeshViewerClass::DrawMesh(bed_mesh_t zval, const uint8_t sizex, const uint8
   }
 }
 
+<<<<<<< HEAD
 void MeshViewerClass::Draw() {
   Title.ShowCaption(F("Mesh Viewer"));
   DrawMesh(TERN(MESH_BED_LEVELING,mbl.z_values,z_values), GRID_MAX_POINTS_X, GRID_MAX_POINTS_Y);
   DWINUI::Draw_IconWB(ICON_Continue_E, 86, 305);
+=======
+void MeshViewerClass::Draw(bool withsave /*= false*/) {
+  Title.ShowCaption(F("Mesh Viewer"));
+  DrawMesh(TERN(MESH_BED_LEVELING,mbl.z_values,z_values), GRID_MAX_POINTS_X, GRID_MAX_POINTS_Y);
+  if (withsave) {
+    DWINUI::Draw_Button(BTN_Save, 26, 305);
+    DWINUI::Draw_Button(BTN_Continue, 146, 305);
+    Draw_Select_Highlight(HMI_flag.select_flag, 305);
+  } else DWINUI::Draw_Button(BTN_Continue, 86, 305);
+>>>>>>> upstream
   char str_1[6], str_2[6] = "";
   ui.status_printf(0, F("Mesh minZ: %s, maxZ: %s"),
     dtostrf(min, 1, 2, str_1),
@@ -108,4 +128,12 @@ void MeshViewerClass::Draw() {
   );
 }
 
+<<<<<<< HEAD
+=======
+void Draw_MeshViewer() { MeshViewer.Draw(true); }
+void onClick_MeshViewer() { if (HMI_flag.select_flag) WriteEeprom(); HMI_ReturnScreen(); }
+void Goto_MeshViewer() { if (leveling_is_valid()) Goto_Popup(Draw_MeshViewer, onClick_MeshViewer);  else HMI_ReturnScreen(); }
+
+
+>>>>>>> upstream
 #endif // DWIN_LCD_PROUI && HAS_MESH

@@ -1,8 +1,13 @@
 /**
  * DWIN general defines and data structs
  * Author: Miguel A. Risco-Castillo
+<<<<<<< HEAD
  * Version: 3.10.3
  * Date: 2022/02/02
+=======
+ * Version: 3.11.3
+ * Date: 2022/02/28
+>>>>>>> upstream
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as 
@@ -51,6 +56,10 @@
 #define Def_Barfill_Color     BarFill_Color
 #define Def_Indicator_Color   Color_White
 #define Def_Coordinate_Color  Color_White
+<<<<<<< HEAD
+=======
+#define Def_Button_Color      RGB( 0, 23, 16)
+>>>>>>> upstream
 
 #define HAS_GCODE_PREVIEW 1
 #define HAS_ESDIAG 1
@@ -107,11 +116,20 @@ typedef struct {
   #if ENABLED(PREVENT_COLD_EXTRUSION)
     int16_t ExtMinT = EXTRUDE_MINTEMP;
   #endif
+<<<<<<< HEAD
   #if ENABLED(PREHEAT_BEFORE_LEVELING) && defined(PREHEAT_1_TEMP_BED)
     int16_t BedLevT = PREHEAT_1_TEMP_BED;
   #endif
   TERN_(BAUD_RATE_GCODE, bool Baud115K = false);
   bool FullManualTramming = false;
+=======
+  int16_t BedLevT = TERN0(PREHEAT_1_TEMP_BED, PREHEAT_1_TEMP_BED);
+  TERN_(BAUD_RATE_GCODE, bool Baud115K = false);
+  bool FullManualTramming = false;
+  #ifdef MESH_BED_LEVELING
+    float ManualZOffset = 0;
+  #endif
+>>>>>>> upstream
   #if ProUI
     TERN_(HAS_FILAMENT_SENSOR, bool Runout_active_state = FIL_RUNOUT_STATE);
     #if ENABLED(NOZZLE_PARK_FEATURE)

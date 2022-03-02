@@ -44,7 +44,16 @@
 //
 // Limit Switches
 //
+<<<<<<< HEAD
 #define Z_STOP_PIN                          PC14
+=======
+#ifdef BLTOUCH
+  #define Z_STOP_PIN                        PC14
+  #define Z_STOP_PIN_NADD                   PA15  //Added z-axis limit switch  rock_20210816
+#else
+  #define Z_STOP_PIN                        PA15
+#endif
+>>>>>>> upstream
 
 #ifndef Z_MIN_PROBE_PIN
   #define Z_MIN_PROBE_PIN                   PC14  // BLTouch IN
@@ -57,10 +66,45 @@
   #define FIL_RUNOUT_PIN                    PC15  // "Pulled-high"
 #endif
 
+<<<<<<< HEAD
 //
 // Heaters / Fans
 //
 #define HEATER_BED_PIN                      PA7   // HOT BED
 #define FAN1_PIN                            PC0   // extruder fan
+=======
+//Backpower 
+#ifndef BACKPOWER_CTRL_PIN
+  #define BACKPOWER_CTRL_PIN                PA4  // When the ADC detects that the 24V supply is less than 20V, the continuation data is saved first, and then PA4=1. ---------zy
+#endif
+
+#ifndef CHECK_24V_PIN
+#define POWER_DETECTION_PIN                 PB0  // Detects the ADC input pin of the 24V supply
+#endif  
+
+//
+// Heaters / Fans
+//
+#define HEATER_BED_PIN                      PA7  // HOT BED
+#define FAN1_PIN                            PC0  // extruder fan
+
+//
+// SD Card
+//
+#define ONBOARD_SPI_DEVICE                  1
+#define ONBOARD_SD_CS_PIN                   PA4  // SDSS
+
+//
+// M3/M4/M5 - Spindle/Laser Control
+//
+#if HAS_CUTTER
+  // #undef HEATER_0_PIN
+  // #undef HEATER_BED_PIN
+  #undef FAN_PIN
+  #define SPINDLE_LASER_ENA_PIN             PA0  // FET 1
+  #define SPINDLE_LASER_PWM_PIN             PA0  // Bed FET
+  #define SPINDLE_DIR_PIN                   PA0  // FET 4
+#endif
+>>>>>>> upstream
 
 #include "pins_CREALITY_V4.h"

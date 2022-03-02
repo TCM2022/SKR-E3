@@ -33,12 +33,20 @@
 uint8_t DWIN_SendBuf[11 + DWIN_WIDTH / 6 * 2] = { 0xAA };
 uint8_t DWIN_BufTail[4] = { 0xCC, 0x33, 0xC3, 0x3C };
 uint8_t databuf[26] = { 0 };
+<<<<<<< HEAD
+=======
+bool need_lcd_update = true;
+>>>>>>> upstream
 
 // Send the data in the buffer plus the packet tail
 void DWIN_Send(size_t &i) {
   ++i;
   LOOP_L_N(n, i) { LCD_SERIAL.write(DWIN_SendBuf[n]); delayMicroseconds(1); }
   LOOP_L_N(n, 4) { LCD_SERIAL.write(DWIN_BufTail[n]); delayMicroseconds(1); }
+<<<<<<< HEAD
+=======
+  need_lcd_update = true;
+>>>>>>> upstream
 }
 
 /*-------------------------------------- System variable function --------------------------------------*/
@@ -102,9 +110,18 @@ void DWIN_Frame_SetDir(uint8_t dir) {
 
 // Update display
 void DWIN_UpdateLCD() {
+<<<<<<< HEAD
   size_t i = 0;
   DWIN_Byte(i, 0x3D);
   DWIN_Send(i);
+=======
+  if (need_lcd_update) {
+    size_t i = 0;
+    DWIN_Byte(i, 0x3D);
+    DWIN_Send(i);
+    need_lcd_update = false;
+  }
+>>>>>>> upstream
 }
 
 /*---------------------------------------- Drawing functions ----------------------------------------*/

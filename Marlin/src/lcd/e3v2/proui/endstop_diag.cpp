@@ -1,8 +1,13 @@
 /**
  * DWIN End Stops diagnostic page
  * Author: Miguel A. Risco-Castillo
+<<<<<<< HEAD
  * Version: 1.1.3
  * Date: 2022/01/28
+=======
+ * Version: 1.2.3
+ * Date: 2022/02/24
+>>>>>>> upstream
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -61,7 +66,11 @@ void ESDiagClass::Draw() {
   Title.ShowCaption(F("End-stops Diagnostic"));
   DWINUI::ClearMenuArea();
   Draw_Popup_Bkgd();
+<<<<<<< HEAD
   DWINUI::Draw_IconWB(ICON_Continue_E, 86, 250);
+=======
+  DWINUI::Draw_Button(BTN_Continue, 86, 250);
+>>>>>>> upstream
   DWINUI::cursor.y = 80;
   #define ES_LABEL(S) draw_es_label(F(STR_##S))
   #if HAS_X_MIN

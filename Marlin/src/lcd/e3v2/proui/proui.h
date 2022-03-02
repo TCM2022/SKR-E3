@@ -50,7 +50,11 @@ constexpr int16_t DEF_Z_MAX_POS = Z_MAX_POS;
 #endif
 #if HAS_BED_PROBE
   constexpr int16_t DEF_PROBING_MARGIN = PROBING_MARGIN;
+<<<<<<< HEAD
   #define MIN_PROBE_MARGIN 10
+=======
+  #define MIN_PROBE_MARGIN 3
+>>>>>>> upstream
   #define MAX_PROBE_MARGIN 60
   constexpr int16_t DEF_Z_PROBE_FEEDRATE_SLOW = (Z_PROBE_FEEDRATE_FAST / 2);
 #endif

@@ -124,6 +124,7 @@ tags
 .clang_complete
 .gcc-flags.json
 /lib/
+/configuration/
 
 # Secure Credentials
 Configuration_Secure.h
